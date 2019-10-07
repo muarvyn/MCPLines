@@ -68,7 +68,7 @@ class RenderNode():
             parent_key_set = set(parent.orig.state.key.key_set)
         else:
             parent_key_set = set()
-        self.loc = next(iter(set(orig.state.key.key_set) - parent_key_set))
+        self.loc = next(iter(set(orig.state.key.key_set) - parent_key_set), "root")
 
     def citer(self):
         return map(lambda orig: RenderNode(orig, self), self.orig.children)
